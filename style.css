@@ -1,0 +1,159 @@
+*{
+    margin:0;
+    padding:0;
+    border:0;
+    box-sizing:border-box;
+}
+body{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
+    background-color:hsla(0, 0%, 50%, 0.5);
+}
+ol,ul{
+    padding: 0px 15px;
+    line-height:30px;
+}
+a{
+    text-decoration:none;
+    font-weight:500;
+    color:hsl(223, 96%, 49%);
+    cursor:pointer;
+}
+a:hover{
+    text-decoration:underline;
+}
+.container{
+    width:850px;
+    height:auto;
+    background-color:hsla(0, 0%, 100%, 0.2);
+    border-radius:10px;
+    box-shadow: 0px 5px 12px hsla(0, 0%, 50%, 0.5);
+}
+.container .top-toolbar{
+    width:82%;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    padding: 20px 15px 10px 15px;
+}
+.container .top-toolbar .filename{
+    width:100px;
+    height:30px;
+    border-radius:4px;
+    padding-left:10px;
+    font-size:15px;
+    background-color:hsla(0, 0%, 100%, 0.8);
+    outline:none;
+}
+.container .top-toolbar .save{
+    width:100px;
+    height:30px;
+    padding:5px;
+    border-radius:4px;
+    font-size:14px;
+    background-color:hsla(0, 0%, 100%, 0.8);
+    cursor:pointer;
+    outline:none;
+}
+.container .top-toolbar .save option{
+    background-color:hsla(0, 0%, 0%, 0.8);
+    color:hsl(0, 0%, 100%);
+    font-size:14px;
+}
+.container .top-toolbar .heading{
+    width:100px;
+    height:30px;
+    padding:5px;
+    border-radius:4px;
+    font-size:14px;
+    background-color:hsla(0, 0%, 100%, 0.8);
+    cursor:pointer;
+    outline:none;
+}
+.container .top-toolbar .heading option{
+    background-color:hsla(0, 0%, 0%, 0.8);
+    color:hsl(0, 0%, 100%);
+    font-size:14px;
+}
+.container .top-toolbar .font-size{
+    width:100px;
+    height:30px;
+    padding:5px;
+    border-radius:4px;
+    font-size:14px;
+    background-color:hsla(0, 0%, 100%, 0.8);
+    cursor:pointer;
+    outline:none;
+}
+.container .top-toolbar .font-size option{
+    background-color:hsla(0, 0%, 0%, 0.8);
+    color:hsl(0, 0%, 100%);
+    font-size:14px;
+}
+.container .top-toolbar .color-box{
+    width:75px;
+    background-color:hsla(0, 0%, 100%, 0.8);
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    border-radius:4px;
+    font-size:14px;
+}
+.container .top-toolbar .color-box .color1{
+    width:25px;
+    height:25px;
+    cursor:pointer;
+    border:none;
+    outline:none;
+}
+.container .top-toolbar .bg-color{
+    width:115px;
+    background-color:hsla(0, 0%, 100%, 0.8);
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    border-radius:4px;
+    font-size:14px;
+}
+.container .top-toolbar .bg-color .color2{
+    width:25px;
+    height:25px;
+    cursor:pointer;
+    border:none;
+    outline:none;
+}
+.container .bottom-toolbar{
+    width:92%;
+    display:flex;
+    justify-content:space-between;
+    margin:20px 15px 25px 15px;
+}
+.container .bottom-toolbar .btn{
+    width:40px;
+    height:35px;
+    font-size:18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:4px;
+    background-color:hsla(0, 0%, 100%, 0.15);
+    border: 1px solid hsla(0, 0%, 0%, 0.3);
+    box-shadow: 0px 3px 3px hsla(0, 0%, 0%, 0.3);
+    cursor:pointer;
+}
+.container .bottom-toolbar .btn:hover{
+    background-color:hsla(0, 0%, 100%, 0.3);
+}
+.container .text-area{
+    width:100%;
+    height:auto;
+    padding: 20px 15px 20px 15px;
+    border-radius:0px 0px 10px 10px;
+    background-color:hsl(0, 0%, 100%);
+    outline:none;
+}
