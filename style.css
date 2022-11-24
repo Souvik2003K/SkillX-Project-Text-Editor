@@ -159,7 +159,7 @@ a:hover{
 }
 @media screen and (max-width: 426px){
     .container{
-        width:85%;
+        width:95%;
     }
     .container .top-toolbar{
         width:100%;
