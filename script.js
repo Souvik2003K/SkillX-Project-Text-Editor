@@ -3,7 +3,12 @@ function addlink(){
     document.execCommand('createlink', false, url);
 }
 
-const content = document.getElementById('text-area');
+function copy(){
+	alert("text copied to clipboard");
+	document.execCommand('copy');
+}
+
+const content = document.getElementById('text-area'); 
 
 content.addEventListener('mouseenter', function () {
 	const a = content.querySelectorAll('a');
@@ -21,7 +26,7 @@ content.addEventListener('mouseenter', function () {
 const filename = document.getElementById('filename');
 
 function fileHandle(value) {
-	if(value === 'new') {
+	if(value === 'new') { // === means returns boolean value in javascript
 		content.innerHTML = '';
 		filename.value = 'untitled';
 	} else if(value === 'txt') {
