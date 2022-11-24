@@ -157,3 +157,26 @@ a:hover{
     background-color:hsl(0, 0%, 100%);
     outline:none;
 }
+@media screen and (max-width: 426px){
+    .container{
+        width:85%;
+    }
+    .container .top-toolbar{
+        width:100%;
+        height:110px;
+        flex-wrap:wrap;
+    }
+    .container .bottom-toolbar{
+        width:100%;
+        height:100px;
+        justify-content:center;
+        flex-wrap:wrap;
+        margin: 10px 0px 20px 0px;
+    }
+    .container .bottom-toolbar .btn{
+        width:35px;
+        height:35px;
+        font-size:16px;
+        margin:5px;
+    }
+}
