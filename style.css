@@ -166,6 +166,9 @@ a:hover{
         height:110px;
         flex-wrap:wrap;
     }
+    .container .top-toolbar .color-box{
+        width:80px;
+    }
     .container .bottom-toolbar{
         width:100%;
         height:100px;
