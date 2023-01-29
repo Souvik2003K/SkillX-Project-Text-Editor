@@ -116,7 +116,7 @@ hr{
     display:flex;
     flex-direction:column;
     justify-content:center;
-    padding-left:25px;
+    padding-left:20px;
 }
 .container .file-panel .filename{
     width:220px;
