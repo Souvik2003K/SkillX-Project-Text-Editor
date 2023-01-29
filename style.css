@@ -187,3 +187,22 @@ a:hover{
         margin:5px;
     }
 }
+
+/* =========== EDITED BY SOUVIK =========== */
+
+.btn-class:hover .txt{
+    display: block;
+}
+
+
+.txt{
+    display: none;
+    position: absolute;
+    margin-top: 10px;
+    padding: 8px;
+    color: white;
+    background-color: grey;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 12px;
+}
