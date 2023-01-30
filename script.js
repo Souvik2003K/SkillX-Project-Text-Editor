@@ -28,7 +28,6 @@ const filename = document.getElementById('filename');
 function fileHandle(value) {
 	if(value === 'new') { // === means returns boolean value in javascript
 		content.innerHTML = '';
-		filename.value = 'untitled';
 	} else if(value === 'txt') {
 		const blob = new Blob([content.innerText])
 		const url = URL.createObjectURL(blob)
