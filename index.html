@@ -4,112 +4,122 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="style.css" rel="stylesheet">
     <title>TextEditor</title>
 </head>
 <body>
-    <div class="container">
+    <div class="top-toolbar">
+        <div class="btn-class">
+            <button class="btn" onclick="document.execCommand('undo')"><p class="icon"><i class='bx bx-undo' ></i></p></button>
+            <div class="txt">UNDO</div>
+        </div>
+        <div class="btn-class">
+            <button class="btn" onclick="document.execCommand('redo')"><p class="icon"><i class='bx bx-redo' ></i></p></button>
+            <div class="txt">REDO</div>
+        </div>
+        <div class="btn-class">
+            <button class="btn" onclick="document.execCommand('bold')"><p class="icon"><i class='bx bx-bold icon'></i></p></button>
+            <div class="txt">BOLD</div>
+        </div>
+        <div class="btn-class">
+            <button class="btn" onclick="document.execCommand('underline')"><p class="icon"><i class='bx bx-underline'></i></p></button>
+            <div class="txt">UNDERLINE</div>
+        </div>
+        <div class="btn-class">
+            <button class="btn" onclick="document.execCommand('italic')"><p class="icon"><i class='bx bx-italic icon' ></i></p></button>
+            <div class="txt">ITALIC</div>
+        </div>
+        <div class="btn-class">
+            <button class="btn" onclick="document.execCommand('strikethrough')"><p class="icon"><i class='bx bx-strikethrough' ></i></p></button>
+            <div class="txt">STRIKETHROUGH</div>
+        </div>
+        <div class="btn-class">
+            <button class="btn" onclick="document.execCommand('justifyLeft')"><p class="icon"><i class='bx bx-align-left' ></i></p></button>
+            <div class="txt">LEFT ALIGN</div>
+        </div>
+        <div class="btn-class">
+            <button class="btn" onclick="document.execCommand('justifyCenter')"><p class="icon"><i class='bx bx-align-middle' ></i></p></button>
+            <div class="txt">CENTER ALIGN</div>
+        </div>
+        <div class="btn-class">
+            <button class="btn" onclick="document.execCommand('justifyRight')"><p class="icon"><i class='bx bx-align-right' ></i></p></button>
+            <div class="txt">RIGHT ALIGN</div>
+        </div>
+        <div class="btn-class">
+            <button class="btn" onclick="document.execCommand('justifyFull')"><p class="icon"><i class='bx bx-align-justify' ></i></p></button>
+            <div class="txt">JUSTIFY</div>
+        </div>
+        <div class="btn-class">
+            <button class="btn" onclick="document.execCommand('insertOrderedList')"><p class="icon"><i class='bx bx-list-ol'></i></p></button>
+            <div class="txt">NUMBERIC BULLETS</div>
+        </div>
+        <div class="btn-class">
+            <button class="btn" onclick="document.execCommand('insertUnorderedList')"><p class="icon"><i class='bx bx-list-ul' ></i></p></button>
+            <div class="txt">CIRCULAR BULLETS</div>
+        </div>
+        <div class="btn-class">
+            <button class="btn" onclick="copy()"><p class="icon"><i class='bx bx-copy'></i></p></button>
+            <div class="txt">COPY TO CLIPBOARD</div>
+        </div>
+        <div class="btn-class">
+            <button class="btn" onclick="addlink()"><p class="icon"><i class='bx bx-link' ></i></p></button>
+            <div class="txt">ADD LINK</div>
+        </div>
+        <div class="btn-class">
+            <button class="btn" onclick="document.execCommand('unlink')"><p class="icon"><i class='bx bx-unlink' ></i></p></button>
+            <div class="txt">UNLINK</div>
+        </div>
+    </div>
 
-        <div class="top-toolbar"> <!--header options starts-->
-            <input type="text" class="filename" id="filename" value="Untitled" placeholder="Filename" spellcheck="false">
+    <div class="container">
+        <div class="panel">
+            <p class="text">Style</p>
+            <select class="heading" id="heading" onchange="document.execCommand('formatBlock', false, this.value); this.selectedIndex=0;">
+                <option value="" selected="" hidden="" disabled="">Heading</option>
+                <option value="h1">Heading 1</option>
+                <option value="h2">Heading 2</option>
+                <option value="h3">Heading 3</option>
+                <option value="h4">Heading 4</option>
+                <option value="h5">Heading 5</option>
+                <option value="h6">Heading 6</option>
+            </select>
+            <hr>
+            <p class="text">Font Size</p>
+            <select class="font-size" id="font-size" onchange="document.execCommand('fontSize', false, this.value); this.selectedIndex=0;">
+                <option value="" selected="" hidden="" disabled="">Font size</option>
+                <option value="1">very small</option>
+                <option value="2">small</option>
+                <option value="3">regular</option>
+                <option value="4">medium</option>
+                <option value="5">large</option>
+                <option value="6">extra large</option>
+            </select>
+            <hr>
+            <ul style="list-style-type:none;">
+                <li class="color" style="float:left;padding-right:15px;">Color : </li>
+                <li style="float:left;"><input type="color" value="#9824E5" id="style1" oninput="document.execCommand('foreColor', false, this.value);"></li>
+            </ul>
+            <hr>
+            <ul style="list-style-type:none;">
+                <li class="color" style="float:left;padding-right:15px;">Background Color : </li>
+                <li style="float:left;"><input type="color" value="#2488E5" id="style1" oninput="document.execCommand('hiliteColor', false, this.value);"></li>
+            </ul>
+        </div>
+
+        <div class="file-panel">
+            <input type="text" class="filename" id="filename" placeholder="Filename" spellcheck="false">
                 <select class="save" id="save" onchange="fileHandle(this.value); this.selectedIndex=0;">
                     <option value="" selected="" hidden="" disabled="">Save as</option>
                     <option value="new">New File</option>
                     <option value="txt">Save as Text</option>
                     <option value="pdf">Save as pdf</option>
                 </select>
-                <select class="heading" id="heading" onchange="document.execCommand('formatBlock', false, this.value); this.selectedIndex=0;">
-                    <option value="" selected="" hidden="" disabled="">Heading</option>
-                    <option value="h1">Heading 1</option>
-                    <option value="h2">Heading 2</option>
-                    <option value="h3">Heading 3</option>
-                    <option value="h4">Heading 4</option>
-                    <option value="h5">Heading 5</option>
-                    <option value="h6">Heading 6</option>
-                </select>
-                <select class="font-size" id="font-size" onchange="document.execCommand('fontSize', false, this.value); this.selectedIndex=0;">
-                    <option value="" selected="" hidden="" disabled="">Font size</option>
-                    <option value="1">very small</option>
-                    <option value="2">small</option>
-                    <option value="3">regular</option>
-                    <option value="4">medium</option>
-                    <option value="5">large</option>
-                    <option value="6">extra large</option>
-                </select>
-            <div class="color-box">Color <input type="color" class="color1" id="color1" oninput="document.execCommand('foreColor', false, this.value);"></div>
-            <div class="bg-color">Background <input type="color" class="color2" id="color2" oninput="document.execCommand('hiliteColor', false, this.value);"></div>
-        </div> <!--header option ends-->
-
-        <div class="bottom-toolbar"> <!--toolbar buttons start-->
-            <div class="btn-class">
-                <button class="btn" onclick="document.execCommand('undo')"><i class='bx bx-undo' ></i></button>
-                <div class="txt">UNDO</div>
-            </div>
-            <div class="btn-class">
-                <button class="btn" onclick="document.execCommand('redo')"><i class='bx bx-redo' ></i></button>
-                <div class="txt">REDO</div>
-            </div>
-            <div class="btn-class">
-                <button class="btn" onclick="document.execCommand('bold')"><i class='bx bx-bold'></i></button>
-                <div class="txt">BOLD</div>
-            </div>
-            <div class="btn-class">
-                <button class="btn" onclick="document.execCommand('underline')"><i class='bx bx-underline'></i></button>
-                <div class="txt">UNDERLINE</div>
-            </div>
-            <div class="btn-class">
-                <button class="btn" onclick="document.execCommand('italic')"><i class='bx bx-italic' ></i></button>
-                <div class="txt">ITALIC</div>
-            </div>
-            <div class="btn-class">
-                <button class="btn" onclick="document.execCommand('strikethrough')"><i class='bx bx-strikethrough' ></i></button>
-                <div class="txt">STRIKETHROUGH</div>
-            </div>
-            <div class="btn-class">
-                <button class="btn" onclick="document.execCommand('justifyLeft')"><i class='bx bx-align-left' ></i></button>
-                <div class="txt">LEFT ALIGN</div>
-            </div>
-            <div class="btn-class">
-                <button class="btn" onclick="document.execCommand('justifyCenter')"><i class='bx bx-align-middle' ></i></button>
-                <div class="txt">CENTER ALIGN</div>
-            </div>
-            <div class="btn-class">
-                <button class="btn" onclick="document.execCommand('justifyRight')"><i class='bx bx-align-right' ></i></button>
-                <div class="txt">RIGHT ALIGN</div>
-            </div>
-            <div class="btn-class">
-                <button class="btn" onclick="document.execCommand('justifyFull')"><i class='bx bx-align-justify' ></i></button>
-                <div class="txt">JUSTIFY</div>
-            </div>
-            <div class="btn-class">
-                <button class="btn" onclick="document.execCommand('insertOrderedList')"><i class='bx bx-list-ol'></i></button>
-                <div class="txt">NUMBERIC BULLETS</div>
-            </div>
-            <div class="btn-class">
-                <button class="btn" onclick="document.execCommand('insertUnorderedList')"><i class='bx bx-list-ul' ></i></button>
-                <div class="txt">CIRCULAR BULLETS</div>
-            </div>
-            <div class="btn-class">
-                <button class="btn" onclick="copy()"><i class='bx bx-copy'></i></button>
-                <div class="txt">COPY TO CLIPBOARD</div>
-            </div>
-            <div class="btn-class">
-                <button class="btn" onclick="addlink()"><i class='bx bx-link' ></i></button>
-                <div class="txt">ADD LINK</div>
-            </div>
-            <div class="btn-class">
-                <button class="btn" onclick="document.execCommand('unlink')"><i class='bx bx-unlink' ></i></button>
-                <div class="txt">UNLINK</div>
-                
-            </div>
-            
-        </div> <!--toolbar buttons end-->
-
+        </div>
         <div class="text-area" id="text-area" contenteditable="true" spellcheck="false"></div>
-
     </div>
+
     <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"></script>
 </body>
 </html>
